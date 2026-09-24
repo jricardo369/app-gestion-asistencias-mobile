@@ -8,20 +8,24 @@ var fondo: string = 'undefined-image.png';
 var avatarh: string = 'undefined-image.png';
 var avatarm: string = 'undefined-image.png';
 
+var urlPro = '';
+
 if ('lua' === compania) {
     logo = 'luaLogo.png';
     logoBlanco = 'luaLogoWhite.png';
     fondo = "LUAstudioPhoto.png";
     avatarh = 'avatar-h-lua.png';
     avatarm = 'avatar-m-lua.png';
+    var urlPro = 'http://3.18.216.78:8080/clock-in-api/';
 } else if ('iroda' === compania) {
     logo = 'iiroda.png';
     fondo = "fondoLoginiRoda.jpeg";
     avatarh = 'avatar-h-iroda.png';
     avatarm = 'avatar-m-iroda.png';
+    var urlPro = 'http://ec2-54-176-17-249.us-west-1.compute.amazonaws.com:8080/control_asistencias_api/';
 }
 
-var urlPro = 'http://3.18.216.78:8080/clock-in-api/';
+
 var urlQas = 'http://ec2-54-176-17-249.us-west-1.compute.amazonaws.com:8080/control_asistencias_api/';
 var urlLocal = 'http://localhost:8080/clock-in-api/';
 var pro = true;
