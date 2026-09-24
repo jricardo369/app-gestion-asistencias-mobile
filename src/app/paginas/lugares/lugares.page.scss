@@ -1,0 +1,285 @@
+
+
+.letra {
+  font-size: 14px;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.seleccionado {
+  background-color: rgb(226,
+      225,
+      225);
+  /* Puedes personalizar el color de fondo seleccionado */
+}
+
+ion-icon {
+  font-size: 40px;
+}
+
+ion-grid {
+  //border: 1px solid black;
+  transform: scale(0.8);
+  text-align: center;
+}
+
+button.seleccionado {
+  background-color: blue;
+  color: white;
+}
+
+button.rojo {
+  background-color: red;
+  color: white;
+}
+
+button.azul {
+  background-color: blue;
+  color: white;
+}
+
+ion-card,
+.card-ios,
+.card-md {
+  box-shadow: none !important;
+}
+
+/*.anuncio {
+  background-color: #b1e678;
+  padding: 5px;
+  color: #567419;
+  border-radius: 15px;
+  font-size: 8px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.barre-mat-container {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.barre-mat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 500px;
+}
+
+.custom-row {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.mat-container {
+  border: 2px solid #6a2c8e;
+  border-radius: 8px;
+  display: flex;
+  width: 120px;
+  height: 40px;
+  overflow: hidden;
+}
+
+/* Estado seleccionado para mat-container */
+.mat-container.seleccionado {
+  border: 2px solid #28a745; /* Verde cuando está seleccionado */
+  background-color: #d4edda; /* Fondo verde claro */
+}
+
+/* Estado ocupado para mat-container */
+.mat-container.ocupado {
+  border: 2px solid #dc3545; /* Rojo cuando está ocupado */
+  background-color: #f8d7da; /* Fondo rojo claro */
+}
+
+.mat-section {
+  flex: 1;
+  border-right: 2px solid #6a2c8e;
+  height: 100%;
+}
+
+/* Estado seleccionado para mat-section */
+.mat-container.seleccionado .mat-section {
+  border-right: 2px solid #28a745; /* Verde cuando está seleccionado */
+  background-color: #d4edda; /* Fondo verde claro */
+}
+
+/* Estado ocupado para mat-section */
+.mat-container.ocupado .mat-section {
+  border-right: 2px solid #dc3545; /* Rojo cuando está ocupado */
+  background-color: #f8d7da; /* Fondo rojo claro */
+}
+
+.mat-container.ocupado .mat-section:last-child {
+  border-right: none;
+}
+
+.mat-section:last-child {
+  border-right: none;
+}
+
+.mat-container-vertical {
+  border: 2px solid #6a2c8e;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 120px;
+  overflow: hidden;
+}
+
+/* Estado seleccionado para mat-container-vertical */
+.mat-container-vertical.seleccionado {
+  border: 2px solid #28a745; /* Verde cuando está seleccionado */
+  background-color: #d4edda; /* Fondo verde claro */
+}
+
+/* Estado ocupado para mat-container-vertical */
+.mat-container-vertical.ocupado {
+  border: 2px solid #dc3545; /* Rojo cuando está ocupado */
+  background-color: #f8d7da; /* Fondo rojo claro */
+}
+
+.mat-section-vertical {
+  flex: 1;
+  border-bottom: 2px solid #6a2c8e;
+  width: 100%;
+}
+
+/* Estado seleccionado para mat-section-vertical */
+.mat-container-vertical.seleccionado .mat-section-vertical {
+  border-bottom: 2px solid #28a745; /* Verde cuando está seleccionado */
+  background-color: #d4edda; /* Fondo verde claro */
+}
+
+/* Estado ocupado para mat-section-vertical */
+.mat-container-vertical.ocupado .mat-section-vertical {
+  border-bottom: 2px solid #dc3545; /* Rojo cuando está ocupado */
+  background-color: #f8d7da; /* Fondo rojo claro */
+}
+
+.mat-container-vertical.ocupado .mat-section-vertical:last-child {
+  border-bottom: none;
+}
+
+/* Clase específica para mat-container-seleccionado (si ya la tienes en HTML) */
+.mat-container-seleccionado {
+  border: 2px solid #28a745 !important;
+  border-radius: 8px;
+  display: flex;
+  width: 120px;
+  height: 40px;
+  overflow: hidden;
+  background-color: #d4edda;
+}
+
+.mat-container-seleccionado .mat-section {
+  flex: 1;
+  border-right: 2px solid #28a745;
+  height: 100%;
+  background-color: #d4edda;
+}
+
+.mat-section-vertical:last-child {
+  border-bottom: none;
+}
+
+.coach-container-vertical {
+  border: 2px solid #ff66b2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.coach-section-vertical {
+  flex: 1;
+  border-bottom: 2px solid #ff66b2;
+  width: 100%;
+}
+
+.coach-section-vertical:last-child {
+  border-bottom: none;
+}
+
+.number {
+  font-size: 16px;
+  color: #6a2c8e;
+}
+
+.coach-label {
+  font-size: 18px;
+  //font-weight: bold;
+  color: #ff66b2;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Alineación especial para los tapetes 3, 2, 1 */
+.right-aligned {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .mat-container {
+    width: 90px;
+    height: 30px;
+  }
+
+  .mat-container-vertical {
+    width: 30px;
+    height: 90px;
+  }
+
+  .coach-container-vertical {
+    width: 30px;
+    height: 90px;
+  }
+
+
+  .coach-label {
+    font-size: 14px;
+  }
+}

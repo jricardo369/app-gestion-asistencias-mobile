@@ -1,0 +1,178 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="dorado">Clases</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="dorado" defaultHref="" (click)="atras()" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="text-align: center;">
+    <label class="label-g1">{{fechaf}}</label>
+  </div>
+
+  @if (listado?.respuesta == '') {
+    <ion-list style="text-align: center;">
+      <br>
+      <label class="sinclases"> Sin Clases</label>
+    </ion-list>
+  }
+
+  @if (listado?.respuesta === null) {
+    <ion-list>
+      @for (item of [1,1,1,1,1,1,1]; track item) {
+        <ion-item id="listaslide" size="12" size-lg="3" size-md="4" size-sm="6">
+          <ion-card style="padding:3px;">
+            <ion-grid>
+              <ion-label>
+                <h2>
+                  <ion-skeleton-text animated style="width: 60%">
+                  </ion-skeleton-text>
+                </h2>
+                <br>
+                <h2>
+                  <ion-skeleton-text animated style="width: 50%">
+                  </ion-skeleton-text>
+                </h2>
+                <br>
+                <p>
+                  <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+                </p>
+              </ion-label>
+            </ion-grid>
+          </ion-card>
+        </ion-item>
+      }
+    </ion-list>
+  }
+
+  @if (rolId == 3) {
+    <ion-list class="animated fast fadeInDown">
+      @for (Clases of listado?.respuesta; track Clases.idClase; let indice=$index) {
+        <ion-item [href]="'asistentes/' + Clases.idClase + '/' + Clases.nombre + '/' + Clases.profesor + '/' + fechaf + '/' + Clases.profesorNombre + '/' + Clases.descripcionHorario"
+          lines="none" color="gray" detail="false" class="ion-no-padding">
+
+          <ion-card style="padding: 3px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  @if (Clases.horario == 'V') {
+                    <img class="imghorario" src="assets/img/moon.png">
+                  }
+                  @if (Clases.horario == 'M') {
+                    <img class="imghorario" src="assets/img/sun.png">
+                  }
+                  <label style="font-weight: bold; font-size: 13px;">
+                    {{Clases.descripcionHorario}}
+                  </label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <label style="color: gray; font-size: 13px;">
+                    {{Clases.nombre}}
+                  </label>
+
+                </ion-col>
+                <ion-col>
+                  <img class="imgarrow" src="assets/img/arrow-right.png">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <label style="color: gray; font-size: 13px;">
+                    Lugares
+                  </label>
+                  @if (Clases.lugaresDisponibles.startsWith('0')) {
+                    <label class="label-membresiavenc">{{Clases.lugaresDisponibles}}</label>
+                  }
+                  @if (!Clases.lugaresDisponibles.startsWith('0') && Clases.lugaresDisponibles != 'CLASE LLENA') {
+                    <label class="label-conlugares">{{Clases.lugaresDisponibles}}</label>
+                  }
+                  @if (Clases.lugaresDisponibles == 'CLASE LLENA') {
+                    <label class="label-clasellena">{{Clases.lugaresDisponibles}}</label>
+                  }
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-item>
+      }
+    </ion-list>
+  }
+
+  @if (rolId == 1) {
+    <ion-list class="animated fast fadeInDown">
+      @for (Clases of listado?.respuesta; track Clases.idClase; let indice=$index) {
+        <ion-item [href]="'asistentes/' + Clases.idClase + '/' + Clases.nombre + '/' + Clases.profesor + '/' + fechaf + '/' + Clases.profesorNombre + '/' + Clases.descripcionHorario"
+          lines="none" color="gray" detail="false" class="ion-no-padding">
+
+          <ion-card style="padding: 3px;">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  @if (Clases.horario == 'V') {
+                    <img class="imghorario" src="assets/img/moon.png">
+                  }
+                  @if (Clases.horario == 'M') {
+                    <img class="imghorario" src="assets/img/sun.png">
+                  }
+                  <label style="font-weight: bold; font-size: 13px;">
+                    {{Clases.descripcionHorario}}
+                  </label>
+                  @if (Clases.estatus == '1') {
+                    <label [ngClass]="compania === 'iroda' ? 'label-estatus-a-iroda' : 'label-estatus-a-lua'">
+                      A
+                    </label>
+                  }
+                  @if (Clases.estatus == '0') {
+                    <label [ngClass]="compania === 'iroda' ? 'label-estatus-i-iroda' : 'label-estatus-i-lua'">
+                      D
+                    </label>
+                  }
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <label style="color: gray; font-size: 13px;">
+                    {{Clases.nombre}}
+                  </label>
+
+                </ion-col>
+                <ion-col>
+                  <img class="imgarrow" src="assets/img/arrow-right.png">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <label class="color-coach" style="font-size: 13px;">
+                    Coach {{Clases.profesorNombre}}
+                  </label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <label style="color: gray; font-size: 13px;">
+                    Lugares
+                  </label>
+                  @if (Clases.lugaresDisponibles.startsWith('0')) {
+                    <label class="label-membresiavenc">{{Clases.lugaresDisponibles}}</label>
+                  }
+                  @if (!Clases.lugaresDisponibles.startsWith('0') && Clases.lugaresDisponibles != 'CLASE LLENA') {
+                    <label class="label-conlugares">{{Clases.lugaresDisponibles}}</label>
+                  }
+                  @if (Clases.lugaresDisponibles == 'CLASE LLENA') {
+                    <label class="label-clasellena">{{Clases.lugaresDisponibles}}</label>
+                  }
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-item>
+      }
+    </ion-list>
+  }
+</ion-content>

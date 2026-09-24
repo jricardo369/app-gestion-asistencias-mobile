@@ -1,0 +1,456 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+// Font Montserrat y Poppins
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: var(--font-family, 'Montserrat'), sans-serif !important;
+}
+
+/* Variables CSS para colores según la compañía */
+:root {
+  --color-dorado-iroda: #EFB810;
+  --color-dorado-lua: #f1be22;
+  /* IRODA */
+  --color-dorado-iroda-dark: #a88118;
+  --color-dorado-lua-dark: #a88118;
+  /*  LUA */
+
+  /* Variables para altura y border-radius de botones */
+  --btn-height-iroda: 45px;
+  --btn-height-lua: 40px;
+  --btn-border-radius-iroda: 15px;
+  --btn-border-radius-lua: 20px;
+
+  --label-g1-iroda: #b1e678;
+  --label-g1-lua: #facbe7;
+  --label-g1-fontc-iroda: #567419;
+  --label-g1-fontc-lua: #540f38;
+
+  --coach-iroda: #3DAF93;
+  --coach-lua: #cf2aa8;
+
+  /* Variables para fuentes según la compañía */
+  --font-family-iroda: 'Montserrat';
+  --font-family-lua: 'Poppins';
+
+  /* Variables para fondos de login según la compañía */
+  --login-background-iroda: url('/assets/img/fondoLoginiRoda.jpeg');
+  --login-background-lua: url('/assets/img/LUAstudioPhoto.png');
+
+  --color-activo-iroda: #417505;
+  --color-inactivo-iroda: #d0011b;
+  --color-faltapago-iroda: #white;
+  --color-activo-lua: #417505;
+  --color-inactivo-lua: #d0011b;
+  --color-faltapago-lua: #white;
+  --backgroud-color-activo-iroda: #d9f7b8;
+  --backgroud-color-inactivo-iroda: #ffced4;
+  --backgroud-color-faltapago-iroda: #efb810;
+  --backgroud-color-activo-lua: #d9f7b8;
+  --backgroud-color-inactivo-lua: #ffced4;
+  --backgroud-color-faltapago-lua: #efb810;
+
+  --color-usuario-iroda: #1a32d1;
+  --color-usuarioc-iroda: #3d7168;
+  --color-usuarioa-iroda: #917147;
+  --color-usuario-lua: #1a32d1;
+  --color-usuarioc-lua: #4f1e79;
+  --color-usuarioa-lua: #917147;
+  --backgroud-color-usuario-iroda: #cee3fc;
+  --backgroud-color-usuarioc-iroda: #c7f1ea;
+  --backgroud-color-usuarioa-iroda: #fbe5ca;
+  --backgroud-color-usuario-lua: #cee3fc;
+  --backgroud-color-usuarioc-lua: #ddc1f7;
+  --backgroud-color-usuarioa-lua: #fbe5ca;
+
+  --label-lugar-iroda: #41b558;
+  --label-lugar-lua: #d9821f;
+}
+
+/* Clases para aplicar los estilos según la compañía */
+.compania-iroda {
+  --color-dorado: var(--color-dorado-iroda);
+  --color-dorado-dark: var(--color-dorado-iroda-dark);
+  --btn-height: var(--btn-height-iroda);
+  --btn-border-radius: var(--btn-border-radius-iroda);
+  --label-g1: var(--label-g1-iroda);
+  --label-g1-fontc: var(--label-g1-fontc-iroda);
+  --coach: var(--coach-iroda);
+  --font-family: var(--font-family-iroda);
+  --login-background: var(--login-background-iroda);
+
+  --color-activo: var(--color-activo-iroda);
+  --backgroud-color-activo: var(--backgroud-color-activo-iroda);
+  --color-inactivo: var(--color-inactivo-iroda);
+  --backgroud-color-inactivo: var(--backgroud-color-inactivo-iroda);
+  --color-faltapago: var(--color-faltapago-iroda);
+  --backgroud-color-faltapago: var(--backgroud-color-faltapago-iroda);
+
+  --color-usuario: var(--color-usuario-iroda);
+  --backgroud-color-usuario: var(--backgroud-color-usuario-iroda);
+  --color-usuarioc: var(--color-usuarioc-iroda);
+  --backgroud-color-usuarioc: var(--backgroud-color-usuarioc-iroda);
+  --color-usuarioa: var(--color-usuarioa-iroda);  
+  --backgroud-color-usuarioa: var(--backgroud-color-usuarioa-iroda);
+  --label-lugar: var(--label-lugar-iroda);
+}
+
+.compania-lua {
+  --color-dorado: var(--color-dorado-lua);
+  --color-dorado-dark: var(--color-dorado-lua-dark);
+  --btn-height: var(--btn-height-lua);
+  --btn-border-radius: var(--btn-border-radius-lua);
+  --label-g1: var(--label-g1-lua);
+  --label-g1-fontc: var(--label-g1-fontc-lua);
+  --coach: var(--coach-lua);
+  --font-family: var(--font-family-lua);
+  --login-background: var(--login-background-lua);
+
+  --color-activo: var(--color-activo-lua);
+  --backgroud-color-activo: var(--backgroud-color-activo-lua);
+  --color-inactivo: var(--color-inactivo-lua);
+  --backgroud-color-inactivo: var(--backgroud-color-inactivo-lua);
+  --color-faltapago: var(--color-faltapago-lua);
+  --backgroud-color-faltapago: var(--backgroud-color-faltapago-lua);
+
+  --color-usuario: var(--color-usuario-lua);
+  --backgroud-color-usuario: var(--backgroud-color-usuario-lua);
+  --color-usuarioc: var(--color-usuarioc-lua);
+  --backgroud-color-usuarioc: var(--backgroud-color-usuarioc-lua);
+  --color-usuarioa: var(--color-usuarioa-lua);  
+  --backgroud-color-usuarioa: var(--backgroud-color-usuarioa-lua);
+
+  --label-lugar: var(--label-lugar-lua);
+}
+
+.logo {
+  width: 40%;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.dorado {
+  color: var(--color-dorado, #EFB810);
+  /* Fallback al color original */
+  //height: 35px;
+  font-size: 16px;
+  //--background: ;
+}
+
+.rojo{
+  color: #e00e0e;
+}
+
+ion-title {
+  font-size: 16px;
+  background-color: white;
+  color: var(--color-dorado, #EFB810);
+  text-align: center;
+
+}
+
+/* Clase específica para ion-title con color de botón dorado */
+ion-title.boton-dorado {
+  color: var(--color-dorado, #EFB810) !important;
+  font-weight: bold;
+}
+
+.btndorado {
+  color: white !important;
+  --background: var(--color-dorado, #EFB810);
+  --height: var(--btn-height, 35px) !important;
+  /* Altura variable según compañía */
+  height: var(--btn-height, 35px) !important;
+  /* Fallback y forzar altura */
+  min-height: var(--btn-height, 35px) !important;
+  /* Asegurar altura mínima */
+  font-size: 16px;
+  --background-activated: var(--color-dorado-dark, #a88118);
+  --background-activated-opacity: 1;
+  --border-radius: var(--btn-border-radius, 4px) !important;
+  /* Border radius variable según compañía */
+  border-radius: var(--btn-border-radius, 4px) !important;
+  /* Fallback para elementos HTML normales */
+}
+
+/* Selector específico para ion-button con clase btndorado */
+ion-button.btndorado {
+  --height: var(--btn-height, 35px) !important;
+  height: var(--btn-height, 35px) !important;
+  min-height: var(--btn-height, 35px) !important;
+  --border-radius: var(--btn-border-radius, 4px) !important;
+  border-radius: var(--btn-border-radius, 4px) !important;
+}
+
+.btngris {
+  color: white;
+  --background: #c6bb97;
+  height: 20px;
+  font-size: 14px;
+  --background-activated: #cfbc88;
+  --background-activated-opacity: 1
+}
+
+.label-g1 {
+  //background-color: #b1e678;
+  background-color: var(--label-g1, #EFB810);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--label-g1-fontc, #EFB810);
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.anuncio {
+  background-color: var(--label-g1, #EFB810);
+  padding: 4.5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: var(--label-g1-fontc, #EFB810);
+  border-radius: 10px;
+  font-size: 8px;
+  text-align: center !important;
+  width: 100%;
+}
+
+.color-coach {
+  color: var(--coach, #EFB810);
+}
+
+.contenido {
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+.label-estatus-a-iroda {
+  background-color: #19b694;
+  padding: 2px;
+  margin-left: 3px;
+  color: #ffffff;
+  border-radius: 15px;
+  font-size: 11px;
+}
+
+.label-estatus-a-lua {
+  background-color: #ca14b5;
+  color: #ffffff;
+  border-radius: 50%;
+  /* Círculo perfecto */
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 3px;
+}
+
+.label-estatus-i-iroda {
+  background-color: #e19e4c;
+  padding: 2px;
+  margin-left: 3px;
+  color: #ffffff;
+  border-radius: 15px;
+  font-size: 11px;
+}
+
+.label-estatus-i-lua {
+  background-color: #94A3B8;
+  color: #ffffff;
+  border-radius: 50%;
+  /* Círculo perfecto */
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 3px;
+}
+
+
+.label-usuario {
+  background-color: var(--backgroud-color-usuario,#cee3fc);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-usuario,#1a32d1);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.label-usuario-c {
+  background-color: var(--backgroud-color-usuarioc,#c7f1ea);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-usuarioc,#3d7168);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.label-usuario-a {
+  background-color: var(--backgroud-color-usuarioa,#fbe5ca);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-usuarioa,#917147);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.label-activo {
+  background-color: var(--backgroud-color-activo, #EFB810);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-activo, #EFB810);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.label-inactivo {
+  background-color: var(--backgroud-color-inactivo, #EFB810);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-inaactivo, #EFB810);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.multas {
+  float: right;
+  clear: right;
+  background-color: #ffced4;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #d0011b;
+  border-radius: 15px;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+
+.label-faltapago {
+  background-color: var(--backgroud-color-faltapago, #EFB810);
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--color-faltapago, #EFB810);
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.label-lugar {
+  background-color: #eeeded;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--label-lugar,#41b558);
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Clase para íconos de 24px exactos */
+.icon-24 {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Clase para íconos pequeños de 20px */
+.icon-20 {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Clase para íconos medianos de 28px */
+.icon-28 {
+  font-size: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+
+ion-searchbar {
+  .searchbar-input-container {
+    input {
+      font-size: 14px !important;
+    }
+  }
+}
+
+.greeni {
+  color: white;
+  --background: #17A589;
+}
+
+.verde {
+  color: #17A589;
+}
+
+.labelinput {
+  color: rgb(139, 137, 137);
+}
+
+ion-item::part(native) {
+  //WRITE ALL YOUR CSS RULES HERE
+  padding-left: unset;
+  /** and lots more **/
+}
+
+
+/* Estilo global para todos los ion-back-button */
+ion-back-button {
+  margin-left: 4px !important;
+}
+

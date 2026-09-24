@@ -1,0 +1,244 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+# Proyecto: Ionic + Angular + Cordova/Capacitor
+
+# ── Node / dependencias ──────────────────────────────
+node_modules/
+.npm
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarn-integrity
+.npmrc.auth
+.node_repl_history
+
+# No ignorar package-lock.json: debe versionarse para builds reproducibles
+
+# ── Build / salidas Angular ──────────────────────────
+dist/
+dist-ssr/
+out-tsc/
+bazel-out/
+.sourcemaps/
+.tmp/
+.temp/
+.sass-cache/
+.versions/
+*.tsbuildinfo
+*.js.map
+.eslintcache
+.stylelintcache
+
+# Cache de Angular CLI (Angular >= 13)
+.angular/cache/
+# Compat: por si existe layout antiguo
+.angular/
+
+# ── Ionic / Cordova ──────────────────────────────────
+platforms/
+plugins/
+merges/
+.cordova/
+.ionic/
+plugins/android.json
+plugins/ios.json
+CordovaLib/
+
+# Salida web generada por `ionic build` / `ng build`
+www/
+
+# ── Capacitor (este repo lo tiene deshabilitado, pero se deja preparado) ──
+# Si NO quieres versionar los proyectos nativos, descomenta:
+# /android
+# /ios
+# Aunque versiones android/ios, ignora siempre sus derivados:
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/local.properties
+android/gradle-app.setting
+ios/Pods/
+ios/DerivedData/
+ios/build/
+.capacitor/
+
+# ── Nativo Android (aplica a platforms/ y a android/) ─
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.hprof
+local.properties
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+gradle-app.setting
+
+# Keystores / firmas: NUNCA subir al repo
+*.keystore
+*.jks
+*.key
+release-signing.properties
+
+# ── Nativo iOS (aplica a platforms/ y a ios/) ────────
+*.xcuserdata/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.xccheckout
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM/
+Pods/
+Carthage/Build/
+
+# Certificados / perfiles Apple: NUNCA subir
+*.p12
+*.pem
+*.mobileprovision
+*.provisionprofile
+
+# ── Entornos / secretos ──────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+
+# ── Tests / cobertura / e2e ──────────────────────────
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+.cypress/
+cypress/screenshots/
+cypress/videos/
+junit.xml
+test-output/
+
+# ── Logs ─────────────────────────────────────────────
+*.log
+logs/
+log.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ── Visual Studio Code ───────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+.history/
+
+# ── Visual Studio (IDE completo) ─────────────────────
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp_proj
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+Changelog.txt
+
+# ── JetBrains (WebStorm / IntelliJ / Rider) ──────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ── Sublime Text ─────────────────────────────────────
+*.sublime-project
+*.sublime-workspace
+
+# ── Vim / Emacs ──────────────────────────────────────
+*.sw[mnpcod]
+*~
+\#*\#
+.\#*
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+\#*#
+
+# ── macOS ────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# ── Windows ──────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ── Linux ────────────────────────────────────────────
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ── Xcode ────────────────────────────────────────────
+UserInterfaceState.xcuserstate
+project.xcworkspace/
+xcuserdata/

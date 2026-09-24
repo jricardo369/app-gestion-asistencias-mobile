@@ -1,0 +1,143 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="dorado">AVISO DEL ESTUDIO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <br />
+
+  <div style="text-align: center">
+    <ion-img src="../../assets/img/{{logo}}" class="logo"></ion-img>
+  </div>
+
+  @if (compania === 'iroda') {
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-label>
+              * Las clases tienen una duración de 45 min, solo cuentas con 10 min de
+              tolerancia para poder ingresar.
+            </ion-label>
+            <br>
+              <ion-label>
+                * Los paquetes son intransferibles, sólo la persona que adquirió el
+                paquete podrá tener acceso a las clases.
+              </ion-label>
+              <br>
+                <ion-label>
+                  * Si tiene alguna lesión o enfermedad que presente un riesgo para la
+                  práctica del ejercicio físico y para su salud, favor de comunicarlo en
+                  recepción.
+                </ion-label>
+                <br>
+                  <ion-label>
+                    * Está prohibido el uso del celular durante la clase.
+                  </ion-label>
+                  <br>
+                    <ion-label>
+                      * iRoda cycling no se responsabiliza por lesiones, daños o accidentes
+                      dentro de nuestras instalaciones.
+                    </ion-label>
+                    <br>
+                      <ion-label>
+                        * El estudio cerrará los días festivos estipulados.
+                      </ion-label>
+                      <br>
+                        <ion-label>
+                          * Cuida y mantén limpio tu espacio, respeta tu lugar reservado en clase,
+                          no te cambies a otra bici sin haberlo consultado previamente en recepción
+                          o con el coach.
+                        </ion-label>
+                        <br>
+                          <ion-label>
+                            * La política de cancelación es de {{horasCancelacion}} h antes de tu
+                            clase, para que la app te regrese tu crédito.
+                          </ion-label>
+                          <br>
+                            <br>
+                            </div>
+                            <ion-checkbox
+                              style="font-size: 14px"
+                              color="secondary"
+                              [(ngModel)]="isChecked"></ion-checkbox
+                              >
+                              <ion-label style="font-size: 14px"> Estoy de acuerdo con los terminos y condiciones</ion-label>
+                              <div>
+                              </div>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      }
+
+                      @if (compania === 'lua') {
+                        <ion-grid fixed>
+                          <ion-row>
+                            <ion-col size-md="6" size-lg="5" size-xs="12">
+                              <div padding>
+                                <ion-label>
+                                  * Las clases tienen una duración de 45 min., solo cuentas con 5 minutos de
+                                  tolerancia para poder ingresar.
+                                </ion-label>
+                                <br>
+                                  <ion-label>
+                                    * Los paquetes son intransferibles y tienen vigencia
+                                  </ion-label>
+                                  <br>
+                                    <ion-label>
+                                      * Uso de calcetines oblitatorio
+                                    </ion-label>
+                                    <br>
+                                      <ion-label>
+                                        * La política de cancelación es de {{horasCancelacion}} horas antes de tu clase
+                                      </ion-label>
+                                      <br>
+                                        <ion-label>
+                                          * Si tiene alguna lesión o enfermedad que presente un riesgo para la
+                                          práctica del ejercicio físico y para su salud, favor de comunicarlo a la coach
+                                        </ion-label>
+                                        <br>
+                                          <ion-label>
+                                            * LUA Studio no se responsabiliza por lesiones, daños o accidentes
+                                            dentro de nuestras instalaciones.
+                                          </ion-label>
+                                          <br>
+                                            <ion-label>
+                                              * Cuida y mantén limpio tu lugar, respeta tu lugar reservado en clase
+                                            </ion-label>
+                                            <br>
+                                              <br>
+                                              </div>
+                                              <ion-checkbox
+                                                style="font-size: 14px"
+                                                color="secondary"
+                                                [(ngModel)]="isChecked"></ion-checkbox
+                                                >
+                                                <ion-label style="font-size: 14px"> Estoy de acuerdo con los terminos y condiciones</ion-label>
+                                                <div>
+                                                </div>
+                                              </ion-col>
+                                            </ion-row>
+                                          </ion-grid>
+                                        }
+
+                                        <div style="margin-bottom: 10px; text-align: center">
+                                          <ion-item lines="none">
+                                            <div style="display: flex; flex-direction: column; width: 100%">
+                                              <div>
+
+                                              </div>
+                                            </div>
+                                          </ion-item>
+                                          <ion-button
+                                            (click)="aceptar()"
+                                            type="submit"
+                                            size="large"
+                                            class="btndorado"
+                                            style="margin-bottom: 20px;"
+                                            >
+                                            Continuar</ion-button
+                                            >
+                                          </div>
+                                        </ion-content>

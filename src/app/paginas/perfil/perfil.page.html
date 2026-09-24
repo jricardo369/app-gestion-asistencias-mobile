@@ -1,0 +1,147 @@
+<ion-header class="ion-no-border" translucent>
+  <ion-toolbar>
+    <ion-title>Perfiles</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="registro()">
+        @if (compania === 'iroda') {
+          <ion-icon class="dorado" slot="icon-only" name="person-add-outline"></ion-icon>
+        }
+
+        @if (compania === 'lua') {
+          <ion-icon class="dorado icon-20" slot="icon-only" name="add-user-lua"></ion-icon>
+        }
+
+        @if (compania !== 'iroda' && compania !== 'lua') {
+          <ion-icon class="dorado icon-20" slot="icon-only" name="person-add-outline"></ion-icon>
+        }
+
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="menuPerfil()" defaultHref="" text="" class="dorado"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar por usuario" animated (ionChange)="buscar($event)" [debounce]="250">
+  </ion-searchbar>
+</ion-header>
+<ion-content>
+
+  @if (listado?.respuesta === null) {
+    <ion-list>
+      @for (item of [1,1,1,1,1,1,1]; track item) {
+        <ion-item id="listaslide" size="12" size-lg="3" size-md="4" size-sm="6">
+          <ion-card>
+            <ion-grid>
+              <ion-label>
+                <h2>
+                  <ion-skeleton-text animated style="width: 90%">
+                  </ion-skeleton-text>
+                </h2>
+                <p><ion-chip>
+                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                </ion-chip>
+              </p>
+              <p> <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+  }
+</ion-list>
+}
+
+<ion-list class="animated slow fadeInLeft">
+  <!-- <ion-item-sliding id="listaslide" *ngFor="let Usuarios of listado?.respuesta  | filtro:textoBuscar " > -->
+  @for (Usuarios of listado?.respuesta | filtro:textoBuscar; track Usuarios) {
+    <ion-item-sliding id="listaslide">
+      <ion-item lines="none" color="gray" detail="false" class="ion-no-padding"
+        href="editarperfil/{{Usuarios.idUsuario}}/{{Usuarios.idRol}}/{{Usuarios.usuario}}/{{Usuarios.sexo}}/{{Usuarios.correoElectronico}}/{{Usuarios.nombre}}/{{Usuarios.telefono}}/{{Usuarios.contrasenia}}/{{Usuarios.estatus}}/{{Usuarios.totalMultas}}">
+        <ion-card style="padding: 3px;">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <!--<img src="https://material.angular.io/assets/img/examples/shiba1.jpg" style="border-radius: 50%; width: 80%; height: 85%">-->
+                @if (Usuarios.idRol == 1) {
+                  <label class="label-usuario-a">Admin</label>
+                }
+                @if (Usuarios.idRol == 2) {
+                  <label class="label-usuario">Usuario</label>
+                }
+                @if (Usuarios.idRol == 3) {
+                  <label class="label-usuario-c">Coach</label>
+                }
+                <label>
+                  {{Usuarios.nombre}}
+                </label>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;">
+              <ion-col >
+                @if (Usuarios.estatus == 1) {
+                  <label class="label-activo">Activo</label>
+                }
+                @if (Usuarios.estatus == 0) {
+                  <label class="label-inactivo">Inactivo</label>
+                }
+                @if (Usuarios.estatus == 3) {
+                  <label class="label-faltapago">Falta de pago</label>
+                }
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                @if (Usuarios.idRol == 2) {
+                  <label class="lvencimiento">
+                    {{Usuarios.membresia}}
+                  </label>
+                }
+              </ion-col>
+            </ion-row>
+            @if (Usuarios.idRol == 2 && Usuarios.vencimiento != 'N/A') {
+              <ion-row>
+                <ion-col>
+                  <label
+                  class="label-membresiavenc">{{Usuarios.vencimiento}}</label>
+                  <!--<label *ngIf="Usuarios.idRol == 3" class="lvencimiento">
+                  Clases 6,7,8
+                </label>-->
+              </ion-col>
+            </ion-row>
+          }
+          @if (Usuarios.totalMultas > 0) {
+            <ion-row >
+              <ion-col>
+                <label class="multas">
+                  {{Usuarios.totalMultas}} multas
+                </label>
+              </ion-col>
+            </ion-row>
+          }
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+    @if (Usuarios.idRol != 1) {
+      <ion-item-options side="start">
+        <ion-item-option color="warning" (click)="bPago(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="alert-circle-outline"></ion-icon>
+          Falta de pago
+        </ion-item-option>
+      </ion-item-options>
+    }
+    @if (Usuarios.idRol != 1) {
+      <ion-item-options side="end">
+        <ion-item-option color="success" (click)="activar(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="checkmark-circle-outline"></ion-icon>
+          Activar
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="desactivar(Usuarios.idUsuario)">
+          <ion-icon style="zoom: 2;" slot="top" name="close-circle-outline"></ion-icon>
+          Desactivar
+        </ion-item-option>
+      </ion-item-options>
+    }
+  </ion-item-sliding>
+}
+</ion-list>
+</ion-content>

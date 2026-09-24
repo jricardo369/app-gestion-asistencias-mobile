@@ -1,0 +1,254 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Lugares</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="dorado" defaultHref="" (click)="regresar()" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-img src="../../assets/img/{{logo}}" style="margin-top:20px" class="logo"></ion-img>
+  <div style="text-align: center;">
+
+    @if (conGrid == 'false' && mostrarLugares== 'true') {
+      <div>
+        <label style="font-size: 14px;">Seleccione su lugar en la clase de {{descripcionHorario}}</label><br>
+        <label style="font-size: 14px;">el dia {{fechaf}}</label><br>
+      </div>
+    }
+
+    @if (conGrid == 'true') {
+      <div>
+        <label style="font-size: 14px;">Usted tiene apartado el lugar en {{descripcionHorario}}</label><br>
+        <label style="font-size: 14px;">el dia {{fechaf}}</label><br>
+        <label style="font-size: 14px;">el el lugar {{lugar}}</label><br><br><br><br>
+        <label style="font-size: 12px;">Desea eliminar su asistencia?</label><br>
+        <ion-button (click)="eliminarAsistencia()" type="submit" size="large" class="btndorado">
+        Eliminar asistencia</ion-button>
+      </div>
+    }
+
+    @if (conGrid == 'false' && mostrarLugares== 'false') {
+      <div>
+        <br>
+          @if (listaEspera == 'false') {
+            <label style="font-size: 14px;">La clasa esta llena, espera a que se desocupe un
+            lugar para poder asistir !!</label>
+            }<br>
+          </div>
+        }
+      </div>
+
+      @if (compania === 'iroda') {
+        <div>
+          @if (conGrid == 'false' && mostrarLugares== 'true') {
+            <ion-grid>
+              @for (row of lugaresServicio ; track row) {
+                <ion-row>
+                  @for (lugar of row; track lugar) {
+                    <ion-col>
+                      <ion-card class="center" [class.seleccionado]="lugar.seleccionado">
+                        @if (lugar.numero == 18) {
+                          <ion-icon color="danger" name="bicycle-outline"></ion-icon>
+                        }
+                        @if (lugar.numero != 18 && lugar.numero < 19 && lugar.seleccionado == false) {
+                          <ion-icon color="primary"
+                          name="bicycle-outline" (click)="apartarLugarIroda(lugar)"></ion-icon>
+                        }
+                        @if (lugar.numero != 18 && lugar.numero < 19 && lugar.seleccionado == true) {
+                          <ion-icon color="medium"
+                          name="bicycle-outline"></ion-icon>
+                        }
+                        @if (lugar.numero == 19) {
+                          <ion-icon></ion-icon>
+                        }
+                        @if (lugar.numero == 20) {
+                          <ion-icon></ion-icon>
+                        }
+                      </ion-card>
+                    </ion-col>
+                  }
+                </ion-row>
+              }
+            </ion-grid>
+          }
+        </div>
+      }
+
+      @if (compania === 'lua') {
+        <div class="barre-mat-container">
+          @if (conGrid == 'false' && mostrarLugares== 'true') {
+            <div class="barre-mat">
+              <!-- Tapete 7 en su propio renglón -->
+              <div class="custom-row" style="justify-content: center;">
+                <div class="position" (click)="apartarLugarLUA(7)">
+          <div [ngClass]="{
+            'mat-container-vertical': true,
+            'seleccionado': isLugarSeleccionado(7),
+            'ocupado': isLugarOcupado(7)
+          }">
+                    <div class="mat-section-vertical"></div>
+                    <div class="mat-section-vertical"></div>
+                    <div class="mat-section-vertical"></div>
+                  </div>
+                  <div class="number">7</div>
+                </div>
+              </div>
+              <!-- Tapetes 8 y 6 en un renglón separado -->
+              <div class="custom-row">
+                <div class="position" (click)="apartarLugarLUA(8)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(8),
+            'ocupado': isLugarOcupado(8)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">8</div>
+                </div>
+                <div class="empty" style="flex: 1;"></div>
+                <div class="position" (click)="apartarLugarLUA(6)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(6),
+            'ocupado': isLugarOcupado(6)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">6</div>
+                </div>
+              </div>
+              <!-- Tapetes 9 y 5 en un renglón separado -->
+              <div class="custom-row">
+                <div class="position" (click)="apartarLugarLUA(9)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(9),
+            'ocupado': isLugarOcupado(9)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">9</div>
+                </div>
+                <div class="empty" style="flex: 1;"></div>
+                <div class="position" (click)="apartarLugarLUA(5)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(5),
+            'ocupado': isLugarOcupado(5)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">5</div>
+                </div>
+              </div>
+              <!-- Tapetes 10 y 4 en un renglón separado -->
+              <div class="custom-row">
+                <div class="position" (click)="apartarLugarLUA(10)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(10),
+            'ocupado': isLugarOcupado(10)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">10</div>
+                </div>
+                <div class="empty" style="flex: 1;"></div>
+                <div class="position" (click)="apartarLugarLUA(4)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(4),
+            'ocupado': isLugarOcupado(4)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">4</div>
+                </div>
+              </div>
+              <!-- Tapete 3 alineado a la derecha -->
+              <div class="custom-row right-aligned">
+                <div class="position" (click)="apartarLugarLUA(3)">
+          <div [ngClass]="{
+            'mat-container': true,
+            'seleccionado': isLugarSeleccionado(3),
+            'ocupado': isLugarOcupado(3)
+          }">
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                    <div class="mat-section"></div>
+                  </div>
+                  <div class="number">3</div>
+                </div>
+              </div>
+              <!-- Nuevo renglón con Coach (vertical como el tapete 7) y tapetes 1, 2 -->
+              <div class="custom-row" >
+                <div class="position">
+                  <div class="coach-container-vertical">
+                    <div class="coach-section-vertical"></div>
+                    <div class="coach-section-vertical"></div>
+                    <div class="coach-section-vertical"></div>
+                  </div>
+                  <div class="coach-label">COACH</div>
+                </div>
+                <div class="empty" style="flex: 1;"></div>
+                <div class="position" style="display: flex; flex-direction: column; gap: 20px;">
+                  <div class="position" (click)="apartarLugarLUA(2)">
+            <div [ngClass]="{
+              'mat-container': true,
+              'seleccionado': isLugarSeleccionado(2),
+              'ocupado': isLugarOcupado(2)
+            }">
+                      <div class="mat-section"></div>
+                      <div class="mat-section"></div>
+                      <div class="mat-section"></div>
+                    </div>
+                    <div class="number">2</div>
+                  </div>
+                  <div class="position" (click)="apartarLugarLUA(1)">
+            <div [ngClass]="{
+              'mat-container': true,
+              'seleccionado': isLugarSeleccionado(1),
+              'ocupado': isLugarOcupado(1)
+            }">
+                      <div class="mat-section"></div>
+                      <div class="mat-section"></div>
+                      <div class="mat-section"></div>
+                    </div>
+                    <div class="number">1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+
+
+    </ion-content>
+    <ion-footer class="ion-no-border footer">
+      @if (conGrid == 'true') {
+        <ion-toolbar>
+          <div style="text-align: center;">
+            <label class="anuncio" style="font-size: 12px;">Recuerda que para no tener multa es necesario </label><br>
+            <label class="anuncio" style="font-size: 12px;">cancelar la clase {{horasCancelacion}} horas antes</label>
+          </div>
+        </ion-toolbar>
+      }
+
+    </ion-footer>

@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Horarios</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="calalumno" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list inset="true" class="animated fast fadeInDown">
+    @for (Clases of listado?.respuesta; track Clases; let indice = $index) {
+      <ion-item
+        href="asisalumno/{{Clases.idClase}}/{{Clases.nombre}}/{{Clases.profesor}}"
+        class="animated fast fadeInDown"
+        >
+        <ion-label>
+          <h2>Clase: {{Clases.nombre}}</h2>
+          <p>Profesor: {{Clases.profesor}}</p>
+          <p>Capacidad: {{Clases.personas}} personas</p>
+        </ion-label>
+        <p>
+          @if (Clases.horario == 'M') {
+            <ion-label>
+              <h3>Turno <span class="green">{{Clases.horario}}</span></h3>
+            </ion-label>
+          }
+          @if (Clases.horario == 'V') {
+            <ion-label>
+              <h3>Turno <span class="red">{{Clases.horario}}</span></h3>
+            </ion-label>
+          }
+        </p>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>

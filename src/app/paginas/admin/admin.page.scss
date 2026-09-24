@@ -1,0 +1,280 @@
+ion-col {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+ion-card {
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  margin: 0 !important;
+}
+
+ion-card.paquetes {
+  background-color: #d9cae7;
+}
+
+.m-paquetes {
+  background-color: #d9cae7;
+  border-radius: 7px;
+  padding: 15px;
+  margin: 2px;
+  width: 170px;
+}
+
+.m-clases {
+  background-color: #a3c6f0;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 2px;
+  width: 170px;
+}
+
+.m-perfiles {
+  background-color: #a0d9bc;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 2px;
+  width: 170px;
+}
+
+.m-asuetos {
+  background-color: #d2d2d2;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 2px;
+  width: 170px;
+}
+
+.m-label {
+  font-size: 16px;
+  float: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.m-img {
+  width: 30%;
+  float: right;
+  margin-top: 5px;
+}
+
+ion-card.clases {
+  background-color: #a3c6f0;
+}
+
+ion-card.perfiles {
+  background-color: #a0d9bc;
+}
+
+ion-card.asuetos {
+  background-color: #d2d2d2;
+}
+
+ion-card-title {
+  text-align: left;
+}
+
+ion-card-header {
+  padding: 7px;
+}
+
+ion-card-subtitle {
+  text-align: center;
+}
+
+ion-img {
+  display: block;
+  float: right;
+  clear: right;
+}
+
+ion-img::part(image) {
+  width: 70%; /* or whatever value */
+  /* you can set the height value too */
+  float: right;
+}
+
+.footer {
+  // min-height: 5em;
+  height: auto;
+  font-size: 14px;
+  text-align: center;
+  background-color: white;
+}
+
+.icono {
+  width: 50%;
+}
+
+ion-label {
+  padding: 5px;
+}
+
+.titulocard {
+  font-size: 16px;
+}
+
+.label-cerrar-sesion {
+  background-color: #d6d6d6;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #626262;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.rem {
+  background-color: #fff79c;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #736d2c;
+  border-radius: 3px;
+  font-size: 8px;
+}
+
+.iconon {
+  margin-top: 3px;
+  width: 10%;
+}
+
+
+
+
+
+//MENU NUEVO 2025
+
+.lua-styles * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      padding: 12px 6px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px; 
+      max-width: 100%;
+    }
+
+    .menu-grid-dos-columnas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px; 
+      max-width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 17px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px; 
+      }
+
+      .icon-container {
+        width: 60px;
+        height: 60px;
+      }
+
+      .menu-item span {
+        font-size: 0.875rem;
+        margin-top: 4px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 25px; 
+      }
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      border: none;
+    }
+
+    .icon-container {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+   
+    .menu-item-1 .icon-container { background-color: #eff6ff; color: #1d4ed8; }
+    .menu-item-2 .icon-container { background-color: #ecfdf5; color: #065f46; }
+    .menu-item-3 .icon-container { background-color: #fffbeb; color: #92400e; }
+    .menu-item-4 .icon-container { background-color: #fef2f2; color: #b91c1c; }
+    .menu-item-5 .icon-container { background-color: #f5f3ff; color: #6b21a8; }
+    .menu-item-6 .icon-container { background-color: #ecfeff; color: #0891b2; }
+    .menu-item-7 .icon-container { background-color: #fefce8; color: #a16207; }
+    .menu-item-8 .icon-container { background-color: #ede9fe; color: #4c1d95; }
+    .menu-item-9 .icon-container { background-color: #fdf2f8; color: #be185d; }
+    .menu-item-10 .icon-container { background-color: #ecfeff; color: #0f766e; }
+    .menu-item-11 .icon-container { background-color: #f0f9ff; color: #0369a1; }
+    .menu-item-12 .icon-container { background-color: #f8fafc; color: #334155; }
+    .menu-item-13 .icon-container { background-color: #f1f5f9; color: #1e293b; }
+
+    .menu-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .menu-item span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.2;
+      margin-top: 3px;
+    }
+
+    .menu-item-1 span { color: #1d4ed8; }
+    .menu-item-2 span { color: #065f46; }
+    .menu-item-3 span { color: #92400e; }
+    .menu-item-4 span { color: #b91c1c; }
+    .menu-item-5 span { color: #6b21a8; }
+    .menu-item-6 span { color: #0891b2; }
+    .menu-item-7 span { color: #a16207; }
+    .menu-item-8 span { color: #4c1d95; }
+    .menu-item-9 span { color: #be185d; }
+    .menu-item-10 span { color: #0f766e; }
+    .menu-item-11 span { color: #0369a1; }
+    .menu-item-12 span { color: #334155; }
+    .menu-item-13 span { color: #1e293b; }

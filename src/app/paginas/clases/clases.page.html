@@ -1,0 +1,129 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="dorado">Clases</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="dorado" defaultHref="" (click)="atras()" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="crearclass()">
+        @if (compania === 'iroda') {
+          <ion-icon class="dorado" slot="icon-only" name="add-outline"></ion-icon>
+        }
+        @if (compania === 'lua') {
+          <ion-icon class="dorado icon-20" slot="icon-only" name="add"></ion-icon>
+        }
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar por fecha" animated (ionChange)="buscar($event)" [debounce]="250">
+  </ion-searchbar>
+</ion-header>
+<ion-content>
+
+  @if (listado?.respuesta === null) {
+    <ion-list>
+      @for (item of [1,1,1,1,1,1,1]; track item) {
+        <ion-item id="listaslide" size="12" size-lg="3" size-md="4" size-sm="6">
+          <ion-card style="padding:3px;">
+            <ion-grid>
+              <ion-label>
+                <h2>
+                  <ion-skeleton-text animated style="width: 60%">
+                  </ion-skeleton-text>
+                </h2>
+                <br>
+                  <h2>
+                    <ion-skeleton-text animated style="width: 50%">
+                    </ion-skeleton-text>
+                  </h2>
+                  <br>
+                    <p>
+                      <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                      <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+                    </p>
+                  </ion-label>
+                </ion-grid>
+              </ion-card>
+            </ion-item>
+          }
+        </ion-list>
+      }
+
+      <ion-list class="animated fast fadeInDown">
+        @for (Clases of listado?.respuesta | filtro:textoBuscar; track Clases; let indice = $index) {
+          <ion-item
+            href="editarclase/{{Clases.idClase}}/{{Clases.horaInicio}}/{{Clases.horaFin}}/{{Clases.horario}}/{{Clases.nombre}}/{{Clases.profesor}}/{{Clases.personas}}/{{Clases.estatus}}/{{Clases.dia}}"
+            lines="none" color="gray" detail="false" class="ion-no-padding" id="listaslide">
+            <ion-card style="padding:3px;">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <label style="font-weight: bold; font-size: 13px;">
+                      {{Clases.diaDescripcion}}
+                    </label>
+                    @if (Clases.estatus == '1') {
+                      <label [ngClass]="compania === 'iroda' ? 'label-estatus-a-iroda' : 'label-estatus-a-lua'">
+                        A
+                      </label>
+                    }
+                    @if (Clases.estatus == '0') {
+                      <label [ngClass]="compania === 'iroda' ? 'label-estatus-i-iroda' : 'label-estatus-i-lua'">
+                        D
+                      </label>
+                    }
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  @if (compania == 'iroda') {
+                    <ion-col>
+                      @if (Clases.horario == 'V') {
+                        <img class="imghorario" src="assets/img/moon.png">
+                      }
+                      @if (Clases.horario == 'M') {
+                        <img class="imghorario" src="assets/img/sun.png">
+                      }
+                      <label style="font-size: 12px;">
+                        {{Clases.descripcionHorario}}
+                      </label>
+                    </ion-col>
+                  }
+                  @if (compania == 'lua') {
+                    <ion-col>
+                      @if (Clases.horario == 'V') {
+                        <img class="imghorario" src="assets/img/moonL.png">
+                      }
+                      @if (Clases.horario == 'M') {
+                        <img class="imghorario" src="assets/img/sunL.png">
+                      }
+                      <label style="font-size: 12px;">
+                        {{Clases.descripcionHorario}}
+                      </label>
+                    </ion-col>
+                  }
+                  <ion-col>
+                    <img class="imgarrow" src="assets/img/arrow-right.png">
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <label style=" font-size: 13px; color: rgb(164, 160, 160)">
+                      {{Clases.nombre}}
+                    </label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <label class="color-coach" style=" font-size: 13px;">
+                      Couch: {{Clases.profesorNombre}}
+                    </label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+          </ion-item>
+        }
+      </ion-list>
+
+    </ion-content>
